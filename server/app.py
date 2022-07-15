@@ -1,15 +1,16 @@
-from flask import Flask, jsonify
+from flask import Flask
+
 
 app = Flask(__name__)
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, Flask!</p>"
-
 @app.route("/api/prescriptions/")
 def get_prescriptions():
-    return {
+    response = {
       "name": "caffeine",
       "dose": "1 cup",
       "frequency": "daily"
     }
+    return response
+
+if __name__ == '__main__':
+    app.run(host='localhost', port=5000)
