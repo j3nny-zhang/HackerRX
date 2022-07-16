@@ -21,7 +21,6 @@ def allowed_file(filename):
 
 @app.route("/api/images/upload", methods=['POST'])
 def upload_image():
-    console.log("test")
     """Saves image to local filesystem and performs OCR on it."""
 
     if 'file' not in request.files:
