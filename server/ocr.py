@@ -21,10 +21,10 @@ class OCR:
             Document={'Bytes': imageBytes})
         text = ""
         for item in result["Blocks"]:
-          if item["BlockType"] == "LINE":
-            text += item["Text"] + "\n"
+            if item["BlockType"] == "LINE":
+                text += item["Text"] + "\n"
         return text
-    
+
     def parse(self, text):
         """Returns a list of entities found in the text."""
         result = self.comprehend_medical.detect_entities(Text=text)
