@@ -18,10 +18,22 @@ function UploadButton() {
       });
   }
 
+
+  const hiddenFileInput = React.useRef(null);
+  const handleClick = event => {
+    hiddenFileInput.current.click();
+  }
+
   return (
     <div className="App">
-      <input type="file" onChange={fileSelectorHandler}/>
-      <button onClick={fileUploadHandler}>upload</button>  
+      <input 
+        type="file" 
+        onChange={fileSelectorHandler}
+        ref={hiddenFileInput}
+        style = { {display: 'none'} }
+      />
+      <button onClick={handleClick}>upload prescription</button>
+      <button onClick={fileUploadHandler}>refill prescription</button>  
     </div>
   );
 }
