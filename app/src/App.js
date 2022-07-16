@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect } from "react";
 import ClientPage from './pages/ClientPage';
+import PharmacistPage from './pages/PharmacistPage';
 
 function App() {
 
@@ -11,7 +12,8 @@ function App() {
   }, [])
 
   return (
-    <ClientPage />
+    //<ClientPage />
+    <PharmacistPage />
   );
 }
 
