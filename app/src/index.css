@@ -2,8 +2,9 @@
 
 body, html {
   margin: 0;
-  font-family: 'VT323', monospace;
   height: 100%;
+  background-color: #252D41 !important;
+  color: #FDF5ED !important;
 }
 
 button {
@@ -14,4 +15,10 @@ button {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1 {
+  font-size: 2em !important;
+  padding-left: 15px;
+  color: #EF839D;
 }

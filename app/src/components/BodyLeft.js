@@ -1,6 +1,5 @@
 import React from "react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
-import './styling/BodyLeft.css'
 
 function BodyLeft() {
   
@@ -14,7 +13,7 @@ function BodyLeft() {
             paddingTop: "15px"
         }}>
         <h1> my prescriptions </h1>
-        <Tabs 
+        <Tabs colorScheme="darkPink"
             style = {{paddingTop: "15px"}}>
             <TabList>
                 <Tab>One</Tab>
