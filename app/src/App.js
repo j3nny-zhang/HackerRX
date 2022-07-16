@@ -2,6 +2,7 @@ import './App.css';
 import React, { useEffect } from "react";
 import UploadButton from './components/UploadButton';
 import Header from './components/Header';
+import BodyLeft from './components/BodyLeft';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     <> 
       <Header />
       {/* <UploadButton /> */}
+      <BodyLeft />
     </>
   );
 }
