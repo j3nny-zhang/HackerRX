@@ -20,7 +20,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.json_encoder = PrescriptionEncoder
 app.secret_key = os.environ.get("SECRET_KEY")
-CORS(app)
+CORS(app, origins=["http://localhost:3000"], supports_credentials=True)
 
 # Configure Flask-Login
 login_manager = LoginManager()
@@ -41,7 +41,10 @@ def load_user(user_id):
 
 @app.route("/auth/signup", methods=["POST"])
 def signup():
+    """Signs up a new user."""
+    print(request.form)
     email = request.form.get("email")
+    print(email)
     name = request.form.get("name")
     password = request.form.get("password")
 
@@ -113,10 +116,10 @@ def get_prescriptions():
     """Returns a list of all prescriptions."""
     prescriptions = client.prescriptiondb.prescriptions
     response = []
-    for prescription in prescriptions.find():
+    for prescription in prescriptions.find({"userId": current_user.get_id()}):
         response.append(prescription)
-    return jsonify(prescription), 200
+    return jsonify(response), 200
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)

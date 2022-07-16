@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+import re
 
 from bson import ObjectId
 from db import client
@@ -17,8 +18,14 @@ class User(UserMixin):
 
     @classmethod
     def get(cls, user_id):
-        return User(**client.userdb.users.find_one({"_id": ObjectId(user_id)}))
+        user = client.userdb.users.find_one({"_id": ObjectId(user_id)})
+        if user is not None:
+            return User(**user)
+        return None
 
     @classmethod
     def get_by_email(cls, email):
-        return User(** client .userdb.users.find_one({"email": email}))
+        user = client .userdb.users.find_one({"email": email})
+        if user is not None:
+            return User(**user)
+        return None
