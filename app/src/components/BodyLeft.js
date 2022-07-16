@@ -4,8 +4,7 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 function BodyLeft() {
 
     const tabStyle = {
-        _selected:
-            {bgColor: "#354265"},
+        bg: "#354364",
         color:"#FDF5ED"
     }
   
