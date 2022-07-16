@@ -11,8 +11,8 @@ function UploadButton() {
 
   const fileUploadHandler = () => {
     const fd = new FormData();
-    fd.append("image", file, file.name);
-    axios.post("/api/images/upload", fd)
+    fd.append("file", file, file.name);
+    axios.post("http://localhost:5000/api/images/upload", fd)
       .then(res => {
         console.log(res);
       });
@@ -21,7 +21,7 @@ function UploadButton() {
   return (
     <div className="App">
       <input type="file" onChange={fileSelectorHandler}/>
-      <button onChange ={fileUploadHandler}>upload</button>  
+      <button onClick={fileUploadHandler}>upload</button>  
     </div>
   );
 }
