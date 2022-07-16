@@ -15,8 +15,8 @@ function App() {
   return (
     <> 
       <Header />
-      {/* <UploadButton /> */}
       <BodyLeft />
+      <UploadButton />
     </>
   );
 }

@@ -18,7 +18,13 @@ code {
 }
 
 h1 {
-  font-size: 2em !important;
-  padding-left: 15px;
+  font-size: 3em !important;
+  padding-left: 30px;
+  padding-bottom: 5px;
   color: #EF839D;
+}
+
+h2 {
+  padding-left: 15px;
+  color: #FFCAD0;
 }

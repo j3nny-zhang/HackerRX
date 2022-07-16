@@ -24,16 +24,45 @@ function UploadButton() {
     hiddenFileInput.current.click();
   }
 
+  const buttonStyle = {
+    backgroundColor: "rgb(239, 131, 157, 0.2)", 
+    padding: "15px 32px",
+    border: "3px solid #EF839D",
+    borderRadius: "32px 32px 32px 32px"
+  }
+
   return (
-    <div className="App">
+    <div 
+      style = {{
+        position: "relative",
+        float: "right",
+        width: "30%",
+        height: "85%",
+        paddingTop: "30px",
+        zIndex: "9px",
+        margin: "60px"
+      }}
+    
+    >
       <input 
         type="file" 
         onChange={fileSelectorHandler}
         ref={hiddenFileInput}
         style = { {display: 'none'} }
       />
-      <button onClick={handleClick}>upload prescription</button>
-      <button onClick={fileUploadHandler}>refill prescription</button>  
+      
+      <div 
+        style ={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "100px",
+          paddingTop: "100px"
+        }}
+      >
+        <button onClick={handleClick} style={buttonStyle}>upload prescription</button>
+        <button onClick={fileUploadHandler} style={buttonStyle}>refill prescription</button> 
+      </div> 
+
     </div>
   );
 }

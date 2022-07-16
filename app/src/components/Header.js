@@ -14,7 +14,7 @@ function Header() {
             columnGap: "15px",
         }}
       > 
-        <p>welcome, user</p>
+        <h2>welcome, user</h2>
         <Button size='xs' bgColor='#141D34'>profile</Button>
         <Button size='xs' bgColor='#141D34'>logout</Button>
       </div>
