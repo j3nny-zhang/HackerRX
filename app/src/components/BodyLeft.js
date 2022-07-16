@@ -2,6 +2,12 @@ import React from "react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 
 function BodyLeft() {
+
+    const tabStyle = {
+        _selected:
+            {bgColor: "#354265"},
+        color:"#FDF5ED"
+    }
   
     return (
       <div 
@@ -13,17 +19,17 @@ function BodyLeft() {
             paddingTop: "15px"
         }}>
         <h1> my prescriptions </h1>
-        <Tabs colorScheme="darkPink"
+        <Tabs variant="soft-rounded"
             style = {{paddingTop: "15px"}}>
-            <TabList>
-                <Tab>One</Tab>
-                <Tab>Two</Tab>
+            <TabList paddingLeft="15px">
+                <Tab _selected={{bg: "#354265"}} color="#FDF5ED">One</Tab>
+                <Tab style={tabStyle}>Two</Tab>
                 <Tab>Three</Tab>
                 <Tab>four</Tab>
                 <Tab>five</Tab>
             </TabList>
 
-            <TabPanels>
+            <TabPanels paddingLeft="30px">
                 <TabPanel>
                     <p>one!</p>
                 </TabPanel>
