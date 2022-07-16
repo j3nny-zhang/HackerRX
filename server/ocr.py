@@ -28,7 +28,27 @@ class OCR:
     def parse(self, text):
         """Returns a list of entities found in the text."""
         result = self.comprehend_medical.detect_entities(Text=text)
-        return result
+        prescriptions = []
+        for entity in result["Entities"]:
+            if entity["Category"] == "MEDICATION":
+                prescription = {}
+                prescription["brandName"] = entity["Text"]
+                # How to refactor this?
+                for attribute in entity["Attributes"]:
+                    if attribute["Type"] == "DOSAGE":
+                        prescription["dosage"] = attribute["Text"]
+                    if attribute["Type"] == "ROUTE_OR_MODE":
+                        prescription["routeOrMode"] = attribute["Text"]
+                    if attribute["Type"] == "DURATION":
+                        prescription["duration"] = attribute["Text"]
+                    if attribute["Type"] == "FREQUENCY":
+                        prescription["frequency"] = attribute["Text"]
+                    if attribute["Type"] == "DATE_TIME":
+                        prescription["dateTime"] = attribute["Text"]
+                    if attribute["Type"] == "FORM":
+                        prescription["form"] = attribute["Text"]
+                prescriptions.append(prescription)
+        return prescriptions
 
 
 def main():
