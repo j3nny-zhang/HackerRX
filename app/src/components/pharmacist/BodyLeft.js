@@ -1,7 +1,10 @@
 import React from "react";
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
+import { useToast } from '@chakra-ui/react'
 
 function BodyLeft() {
+
+    const toast = useToast()
 
     const buttonStyle = {
         backgroundColor: "rgb(239, 131, 157, 0.2)", 
@@ -20,7 +23,7 @@ function BodyLeft() {
             height: "85%",
             paddingTop: "15px",
         }}>
-        <h1> my client </h1>
+        <h1> my patient </h1>
         <Tabs variant="soft-rounded"
             style = {{paddingTop: "15px"}}>
             <TabList paddingLeft="40px">
@@ -69,7 +72,19 @@ function BodyLeft() {
             bottom: "75px",
             paddingLeft: "7%"
         }}> 
-        <button style={buttonStyle}>request prescription refill</button>
+        <button 
+            style={buttonStyle}
+            onClick={()=>
+                toast({
+                    title:"request sent.",
+                    description: "we have notified your patient that it is time to refill their prescription.",
+                    status: 'success',
+                    duration: 9000,
+                    isClosable: true,
+                    position: "bottom-right",
+                })
+            }
+        >request prescription refill</button>
     </div>
     </>
     );
