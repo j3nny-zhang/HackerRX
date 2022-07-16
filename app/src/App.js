@@ -1,17 +1,23 @@
+import './App.css';
 import React, { useEffect } from "react";
-import "./App.css";
+import UploadButton from './components/UploadButton';
+import Header from './components/Header';
+import BodyLeft from './components/BodyLeft';
 
 function App() {
-  useEffect(function () {
-    fetch("/api/prescriptions")
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  }, []);
+
+  useEffect(function(){
+    fetch('/api/prescription')
+      .then(response => response.json())
+      .then(data => console.log(data));
+  }, [])
 
   return (
-    <div className="App">
-      <h1>Hi</h1>
-    </div>
+    <> 
+      <Header />
+      <BodyLeft />
+      <UploadButton />
+    </>
   );
 }
 
