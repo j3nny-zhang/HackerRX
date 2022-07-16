@@ -22,7 +22,7 @@ function PatientInfo() {
     >
         <div 
             style = {{
-                paddingTop: "60%",
+                paddingTop: "45%",
             }}>
             <div style={textStyle}> 
                 <h2>name:</h2>
