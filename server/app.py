@@ -1,6 +1,8 @@
-from flask import Flask, request
+from db import PrescriptionStore
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 from ocr import OCR
+from pprint import pprint
 from werkzeug.utils import secure_filename
 import os
 
@@ -13,6 +15,8 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 CORS(app)
 
+
+db = PrescriptionStore()
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -36,22 +40,18 @@ def upload_image():
         path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(path)
         ocr = OCR()
-        response = ocr.detect(path)
-        text = ""
-        for item in response["Blocks"]:
-            if item["BlockType"] == "LINE":
-                text += item["Text"] + "\n"
-        return text
-
+        result = ocr.detect(path)
+        entities = ocr.parse(result)
+        return jsonify(entities), 200
 
 @app.route("/api/prescriptions/")
 def get_prescriptions():
-    response = {
-        "name": "caffeine",
-        "dose": "1 cup",
-        "frequency": "daily"
-    }
-    return response
+    """Returns a list of all prescriptions."""
+    print("get_prescriptions")
+    prescriptions = db['Cluster0']['prescriptions']
+    for prescription in prescriptions.find():
+        pprint(prescription)
+    return 200
 
 
 if __name__ == '__main__':
