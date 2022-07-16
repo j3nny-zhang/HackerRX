@@ -15,8 +15,8 @@ function Header() {
         }}
       > 
         <p>welcome, user</p>
-        <Button size='xs'>profile</Button>
-        <Button size='xs'>logout</Button>
+        <Button size='xs' bgColor='#141D34'>profile</Button>
+        <Button size='xs' bgColor='#141D34'>logout</Button>
       </div>
     );
   }
