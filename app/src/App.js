@@ -1,5 +1,7 @@
 import './App.css';
 import React, { useEffect } from "react";
+import UploadButton from './components/UploadButton';
+import Header from './components/Header';
 
 function App() {
 
@@ -10,9 +12,10 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      <h1>Hi</h1>
-    </div>
+    <> 
+      <Header />
+      {/* <UploadButton /> */}
+    </>
   );
 }
 
