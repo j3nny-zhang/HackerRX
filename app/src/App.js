@@ -1,8 +1,9 @@
 import './App.css';
+import React, { useEffect } from "react";
 
 function App() {
 
-  App.js.useEffect(function(){
+  useEffect(function(){
     fetch('/api/prescription')
       .then(response => response.json())
       .then(data => console.log(data));
