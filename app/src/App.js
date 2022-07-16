@@ -1,8 +1,6 @@
 import './App.css';
 import React, { useEffect } from "react";
-import UploadButton from './components/UploadButton';
-import Header from './components/Header';
-import BodyLeft from './components/BodyLeft';
+import ClientPage from './pages/ClientPage';
 
 function App() {
 
@@ -13,11 +11,7 @@ function App() {
   }, [])
 
   return (
-    <> 
-      <Header />
-      <BodyLeft />
-      <UploadButton />
-    </>
+    <ClientPage />
   );
 }
 
