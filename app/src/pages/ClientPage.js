@@ -1,6 +1,6 @@
 import React from 'react';
 import UploadButton from '../components/client/UploadButton';
-import Header from '../components/client/Header';
+import Header from '../components/Header';
 import BodyLeft from '../components/client/BodyLeft';
 
 function ClientPage() {
